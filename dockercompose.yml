@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  fastapi-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fastapi-container
+    ports:
+      - "80:80"
+    environment:
+      CONNECTION_STRING: ${CONNECTION_STRING}
+    volumes:
+      - ./src:/code/src
+      - ./requirements.txt:/code/requirements.txt
+      - ./.env:/code/.env
