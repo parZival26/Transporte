@@ -14,7 +14,7 @@ async def getTrasportes(filter: Optional[FilterSchema] = None):
     transportes = [
         {**doc, "_id": str(doc["_id"])} for doc in transportes
     ]
-    return transportes
+    return {"facturas": transportes}
 
 async def updateTransporte(updateTransporte: List[UpdateTransporte]):
     update_results = {"updated": 0, "not_updated": 0, "errors": []}
